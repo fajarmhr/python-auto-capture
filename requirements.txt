@@ -1,0 +1,4 @@
+Pillow
+python-docx
+keyboard
+pywin32
